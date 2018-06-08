@@ -1,0 +1,11 @@
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\bin\Debug\ExemploSerialização.exe.config
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\bin\Debug\ExemploSerialização.exe
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\bin\Debug\ExemploSerialização.pdb
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\bin\Debug\Model.dll
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\bin\Debug\Model.pdb
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\obj\Debug\ExemploSerializacao.csprojResolveAssemblyReference.cache
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\obj\Debug\ExemploSerialização.ListaPersonagem.resources
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\obj\Debug\ExemploSerialização.Properties.Resources.resources
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\obj\Debug\ExemploSerializacao.csproj.GenerateResource.Cache
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\obj\Debug\ExemploSerialização.exe
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\obj\Debug\ExemploSerialização.pdb

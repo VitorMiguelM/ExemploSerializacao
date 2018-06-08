@@ -1,0 +1,2 @@
+C:\Users\105013\Documents\GitHub\ExemploSerialização\ExemploSerialização\bin\Debug\ExemploSerialização.exe.config
+C:\Users\105013\Documents\GitHub\ExemploSerializacao\ExemploSerialização\ExemploSerialização\bin\Debug\ExemploSerialização.exe.config
