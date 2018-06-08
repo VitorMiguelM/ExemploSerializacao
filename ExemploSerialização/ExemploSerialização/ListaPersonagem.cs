@@ -15,9 +15,13 @@ namespace ExemploSerialização
 {
     public partial class ListaPersonagem : Form
     {
+        public int posicao = -1;
+        public static string NOME_ARQUIVO = "Personagens";
+
         public ListaPersonagem()
         {
             InitializeComponent();
+            
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -27,13 +31,19 @@ namespace ExemploSerialização
             personagem.SetNome(txtNome.Text);
             personagem.SetNivelChakra(Convert.ToInt32(txtNivelChakra.Text));
 
-            Tudo tudo = new Tudo();
-            tudo.AdicionarPersonagem(personagem);
+            PersonagemRepository tudo = new PersonagemRepository();
+            if (posicao == -1)
+            {
+                tudo.AdicionarPersonagem(personagem);
+                MessageBox.Show("Personagem cadastrado com sucesso");
+            }
+            else
+            {
+                tudo.EditarPersonagem(personagem, posicao);
+                MessageBox.Show("Personagem alterado com sucesso !");
+            }
  
-            BinaryFormatter binaryWritter = new BinaryFormatter();
-            Stream stream = new FileStream("Personagens.bin" ,FileMode.Create, FileAccess.Write);
-            binaryWritter.Serialize(stream, tudo);
-            stream.Close();
+            
             // bin\Debug
 
         }
@@ -45,7 +55,7 @@ namespace ExemploSerialização
 
         private void AtualizarListaPersonagem()
         {
-            Tudo tudo = new Tudo();
+            PersonagemRepository tudo = new PersonagemRepository();
             dataGridView1.Rows.Clear();
             foreach (Personagem personagem in tudo.ObterPersonagens())
             {
@@ -55,6 +65,73 @@ namespace ExemploSerialização
                     personagem.GetNivelChakra()
                 });
             }
+        }
+
+        private void ListaPersonagem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.L)
+            {
+                ApagarPersonagem();
+            }
+            else if (e.KeyCode == Keys.F2)
+            {
+                EditarPersonagem();
+            }
+        }
+
+        private void EditarPersonagem()
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seu ZOEIRINHO, selecione algo neste grid");
+                return;
+            }
+
+            string nome = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+            PersonagemRepository repository = new PersonagemRepository();
+
+            int quantidade = 0;
+            foreach (Personagem personagem in repository.ObterPersonagens())
+            {
+                txtNome.Text = personagem.GetNome();
+                txtNivelChakra.Text = Convert.ToString(personagem.GetNivelChakra());
+                cbCla.SelectedItem = personagem.GetCla();
+            }
+            LimparCampos();
+            AtualizarListaPersonagem();
+
+        }
+
+        private void LimparCampos()
+        {
+            txtNome.Text = "";
+            txtNivelChakra.Text = "";
+            cbCla.SelectedIndex = -1;
+            posicao = -1;
+        }
+
+        private void ApagarPersonagem()
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seu ZOEIRINHO, selecione algo neste grid");
+                return;
+            }
+
+            
+
+
+            string nome = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+
+            dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+            PersonagemRepository repository = new PersonagemRepository();
+            repository.ApagarPersonagem(nome);
+            MessageBox.Show(nome + "Apagado com sucesso.");
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            EditarPersonagem();
         }
     }
 }

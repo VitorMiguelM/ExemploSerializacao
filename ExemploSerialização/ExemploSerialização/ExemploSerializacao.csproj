@@ -52,7 +52,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tudo.cs" />
+    <Compile Include="PersonagemRepository.cs" />
     <EmbeddedResource Include="ListaPersonagem.resx">
       <DependentUpon>ListaPersonagem.cs</DependentUpon>
     </EmbeddedResource>
